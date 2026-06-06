@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Realization extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'excerpt',
+        'main_image',
+        'slug',
+        'content',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+    ];
 }

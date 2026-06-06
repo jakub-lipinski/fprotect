@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContactController;
-
+use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::controller(PagesController::class)->group(function() {
+Route::controller(PagesController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/usluga/{service:slug}', 'service')->name('service');
     Route::get('/realizacje', 'realizations')->name('realizations');
@@ -25,10 +24,6 @@ Route::controller(PagesController::class)->group(function() {
     Route::get('/kontakt', 'contact')->name('contact');
 });
 
-Route::controller(ContactController::class)->group(function() {
+Route::controller(ContactController::class)->group(function () {
     Route::post('/wyslij-wiadomosc', 'send')->name('contact.send');
-});
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
 });

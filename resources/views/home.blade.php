@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
-@section('title', "Strona główna - FPROTECT")
+@section('title', \App\Support\SeoMeta::title('Kompleksowa ochrona przeciwpożarowa'))
+@section('meta_description', 'FPROTECT specjalizuje się w ochronie przeciwpożarowej obiektów. Oferujemy usługi kompleksowe, indywidualnie dostosowane do potrzeb klienta.')
+@section('meta_keywords', 'ochrona przeciwpożarowa, usługi przeciwpożarowe, zabezpieczenia ppoż, FPROTECT, nadzór przeciwpożarowy, obiekty projektowane, obiekty nowobudowane, obiekty istniejące')
 
 @section('content')
 <div class="hero">

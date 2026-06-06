@@ -5,7 +5,14 @@
     <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>@yield('title', config('app.name'))</title>
+    @hasSection('meta_description')
+        <meta name="description" content="{{ trim($__env->yieldContent('meta_description')) }}">
+    @endif
+    @hasSection('meta_keywords')
+        <meta name="keywords" content="{{ trim($__env->yieldContent('meta_keywords')) }}">
+    @endif
+    @stack('meta')
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,0 +1,3 @@
+[mcp_servers.laravel-boost]
+command = "/Users/jakub/Library/Application Support/Herd/bin/php84"
+args = ["artisan", "boost:mcp"]

@@ -1,5 +1,7 @@
 @extends('layouts.main')
-@section('title', "Kontakt - FPROTECT")
+@section('title', \App\Support\SeoMeta::title('Kontakt'))
+@section('meta_description', 'Skontaktuj się z FPROTECT. Odpowiemy na zapytanie, wyliczymy zakres robót i opracujemy kalkulację ofertową.')
+@section('meta_keywords', 'kontakt FPROTECT, FPROTECT Cieszyn, ochrona przeciwpożarowa kontakt, kalkulacja ofertowa, wycena robót, ul. Stawowa 71 Cieszyn')
 
 @section('content')
 

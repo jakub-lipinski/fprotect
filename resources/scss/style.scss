@@ -236,7 +236,7 @@ $desktop-text: 16px;
     background-color: $placeholder-color;
     width: 100%;
     height: 85vh;
-    background-image: url('../../public/img/tlo3.jpg');
+    background-image: url('/img/tlo3.jpg');
     background-position: center;
     background-size: cover;
     position: relative;
@@ -553,22 +553,223 @@ $desktop-text: 16px;
     }
 }
 
-.service {
+.detail-page {
     max-width: 1300px;
     margin: 0 auto;
     padding: 4rem 2rem;
     width: 100%;
-    font-size: $mobile-text;
-    line-height: 1.5;
+    display: grid;
+    gap: 3rem;
 
-    ul,
-    ol {
-        padding-left: 2rem;
+    &__main {
+        min-width: 0;
     }
 
-    p {
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+    &__lead {
+        margin-bottom: 2.5rem;
+        padding-left: 1.5rem;
+        border-left: 4px solid $main-color;
+        color: $black;
+        font-size: calc($mobile-text + 0.2rem);
+        font-weight: 600;
+        line-height: 1.7;
+        overflow-wrap: break-word;
+    }
+
+    &__content {
+        color: #313131;
+        font-size: $mobile-text;
+        line-height: 1.7;
+        overflow-wrap: break-word;
+
+        h2,
+        h3,
+        h4 {
+            margin-top: 2.4rem;
+            margin-bottom: 1rem;
+            color: $black;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: calc($mobile-heading - 0.4rem);
+        }
+
+        h3 {
+            font-size: calc($mobile-text + 0.5rem);
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+        }
+
+        ul,
+        ol {
+            margin-top: 1rem;
+            margin-bottom: 1.6rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+        }
+
+        img {
+            max-width: 100%;
+            margin: 2rem 0;
+            border-radius: 0.8rem;
+        }
+
+        a {
+            color: $main-color;
+            font-weight: 600;
+        }
+    }
+}
+
+.detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__box {
+        min-width: 0;
+        padding: 2rem;
+        border: 1px solid #E7E7E7;
+        border-radius: 0.8rem;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 8px;
+
+        &--contact {
+            border-color: rgba(184, 0, 0, 0.15);
+            background-color: #fffafa;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 1.5rem;
+        color: $black;
+        font-size: calc($mobile-text + 0.4rem);
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+    }
+
+    &__item {
+        border-bottom: 1px solid #E7E7E7;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.2rem 0;
+        color: $black;
+        font-size: $mobile-text;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+
+        span {
+            min-width: 0;
+            overflow-wrap: break-word;
+        }
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+
+    &__arrow {
+        flex-shrink: 0;
+        color: $main-color;
+        font-size: 1.2rem;
+    }
+
+    &__text {
+        margin-bottom: 1.5rem;
+        color: #313131;
+        font-size: $mobile-text;
+        line-height: 1.6;
+    }
+
+    &__contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+    }
+
+    &__contact-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: $black;
+        font-size: $mobile-text;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        word-break: break-word;
+        transition: 0.3s ease-in-out;
+
+        i {
+            color: $main-color;
+        }
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 1.2rem 1.5rem;
+        border-radius: 0.5rem;
+        background-color: $main-color;
+        color: #fff;
+        font-size: $mobile-text;
+        font-weight: 700;
+        line-height: 1.3;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $black;
+        }
+    }
+}
+
+.service {
+    font-size: $mobile-text;
+    line-height: 1.7;
+}
+
+.realization {
+    font-size: $mobile-text;
+    line-height: 1.7;
+
+    &__title {
+        margin-bottom: 1.5rem;
+        color: $black;
+        font-size: calc($mobile-text + 0.6rem);
+        font-weight: 700;
+        line-height: 1.3;
     }
 }
 
@@ -975,19 +1176,19 @@ $desktop-text: 16px;
     &__wrapper {
         max-width: 1300px;
         margin: 0 auto;
-        padding: 2rem 0;
+        padding: 2rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: flex-start;
         flex-wrap: wrap;
+        gap: 2rem;
     }
 
     &__column {
         width: 100%;
-        padding: 2rem;
         display: flex;
         flex-direction: column;
-        gap: 1rem
+        gap: 1rem;
     }
 
     &__heading {
@@ -1003,6 +1204,7 @@ $desktop-text: 16px;
     &__text {
         color: #ccc;
         font-size: $mobile-text;
+        line-height: 1.6;
     }
 
     &__list {
@@ -1016,7 +1218,9 @@ $desktop-text: 16px;
         color: #ccc;
         text-decoration: none;
         font-size: $mobile-text;
+        line-height: 1.5;
         transition: 0.3s ease-in-out;
+        overflow-wrap: break-word;
 
         &:hover {
             color: #fff;
@@ -1056,11 +1260,12 @@ $desktop-text: 16px;
 
     &__author {
         text-decoration: none;
-        color: #fff;
+        color: #ccc;
         font-size: $mobile-text;
+        transition: 0.3s ease-in-out;
 
         &:hover {
-            text-decoration: underline;
+            color: #fff;
         }
     }
 
@@ -1073,46 +1278,10 @@ $desktop-text: 16px;
         color: #ccc;
         text-decoration: none;
         font-size: $mobile-text;
-    }
-}
+        transition: 0.3s ease-in-out;
 
-// Realization page
-.realization {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    max-width: 1300px;
-    margin: 0 auto;
-    width: 100%;
-    gap: 1rem;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
-        max-width: 850px;
-    }
-
-    &__title {
-        font-size: calc($mobile-text + 0.6rem);
-        margin-bottom: 1.5rem;
-        position: relative;
-        width: fit-content;
-    }
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
-        max-width: 850px;
-        padding-left: 2rem;
-
-        * {
-            font-size: $mobile-text;
-            margin-bottom: 0.5rem;
+        &:hover {
+            color: #fff;
         }
     }
 }
@@ -1177,11 +1346,13 @@ $desktop-text: 16px;
     }
 
     &__breadcrumbs-title {
+        max-width: calc(100% - 4rem);
         color: #fff;
         font-size: calc($mobile-big-heading - 0.2rem);
         position: relative;
         z-index: 2;
         text-align: center;
+        overflow-wrap: break-word;
     }
 
     &__breadcrumbs-link {
@@ -1428,8 +1599,11 @@ $desktop-text: 16px;
 
     .footer {
         &__column {
-            width: 50%;
-            padding: 4rem;
+            width: calc(50% - 1rem);
+        }
+
+        &__column--brand {
+            width: 100%;
         }
 
         &__bottom {
@@ -1642,16 +1816,22 @@ $desktop-text: 16px;
 
     .footer {
         &__column {
-            width: 20%;
-            padding: 4rem;
+            width: 22%;
+        }
 
-            &:nth-of-type(1) {
-                width: 30%;
-            }
+        &__column--brand {
+            width: 46%;
+        }
+
+        &__column--services {
+            width: 26%;
         }
 
         &__wrapper {
             justify-content: space-between;
+            gap: 3rem;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         &__heading {
@@ -1683,19 +1863,48 @@ $desktop-text: 16px;
         }
     }
 
+    .detail-page {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        align-items: flex-start;
+        gap: 4rem;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+
+        &__lead {
+            font-size: calc($desktop-text + 0.2rem);
+        }
+
+        &__content {
+            font-size: $desktop-text;
+
+            h2 {
+                font-size: calc($desktop-heading - 0.8rem);
+            }
+
+            h3 {
+                font-size: calc($desktop-text + 0.5rem);
+            }
+        }
+    }
+
+    .detail-sidebar {
+        position: sticky;
+        top: 120px;
+
+        &__heading {
+            font-size: calc($desktop-text + 0.4rem);
+        }
+
+        &__link,
+        &__text,
+        &__contact-link,
+        &__button {
+            font-size: $desktop-text;
+        }
+    }
+
     .service {
-        padding: 4rem 2rem;
         font-size: $desktop-text;
-
-        ul,
-        ol {
-            padding-left: 2rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
     }
 
     .section {
@@ -1713,28 +1922,10 @@ $desktop-text: 16px;
     }
 
     .realization {
-        flex-direction: row;
-        justify-content: space-between;
-
-        &__content {
-            width: 50%;
-        }
+        font-size: $desktop-text;
 
         &__title {
-            font-size: calc($desktop-text + 0.6rem);
-        }
-
-        &__content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            width: 100%;
-            max-width: 850px;
-            padding-left: 2rem;
-
-            * {
-                font-size: $desktop-text;
-            }
+            font-size: calc($desktop-text + 0.8rem);
         }
     }
 

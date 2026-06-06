@@ -1,7 +1,11 @@
 /.phpunit.cache
 /node_modules
 /public/build
+/public/css/filament
+/public/fonts/filament
 /public/hot
+/public/js/filament
+/public/mix-manifest.json
 /public/storage
 /storage/*.key
 /vendor
@@ -17,3 +21,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.DS_Store
+/.DS_Store
