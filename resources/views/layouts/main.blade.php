@@ -24,16 +24,86 @@
 
     <!-- Css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="{{asset('css/website/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/website/style.css') }}">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/favicon/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('img/favicon/site.webmanifest')}}">
-    <link rel="mask-icon" href="{{asset('img/favicon/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('img/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZSVESESF2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('consent', 'default', {
+            analytics_storage: 'denied'
+        });
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-NZSVESESF2');
+    </script>
+
+    {{-- Cookie banner --}}
+    <link rel="stylesheet" id="silktide-consent-manager-css"
+        href="{{ asset('css/silktide-consent-manager.css') }}">
+    <script src="{{ asset('js/silktide-consent-manager.js') }}"></script>
+    <script>
+        window.silktideConsentManager.init({
+            namespace: 'fprotect',
+            backdrop: {
+                show: false
+            },
+            icon: {
+                position: "bottomLeft"
+            },
+            prompt: {
+                position: "bottomLeft"
+            },
+            consentTypes: [{
+                    id: "essential",
+                    label: "Niezbędne",
+                    description: "<p>Te pliki cookies są potrzebne do prawidłowego działania strony i zapamiętania Twoich ustawień prywatności.</p>",
+                    required: true
+                },
+                {
+                    id: "analytics",
+                    label: "Analityczne",
+                    description: "<p>Pomagają nam sprawdzać, które części strony są najczęściej odwiedzane i jak możemy ją ulepszać.</p>",
+                    defaultValue: false,
+                    gtag: "analytics_storage"
+                }
+            ],
+            text: {
+                prompt: {
+                    description: "<p>Używamy niezbędnych plików cookies oraz, za Twoją zgodą, cookies analitycznych Google Analytics, aby lepiej rozumieć działanie strony.</p>",
+                    acceptAllButtonText: "Akceptuję",
+                    acceptAllButtonAccessibleLabel: "Akceptuję cookies analityczne",
+                    rejectNonEssentialButtonText: "Odrzucam",
+                    rejectNonEssentialButtonAccessibleLabel: "Odrzucam cookies analityczne",
+                    preferencesButtonText: "Ustawienia",
+                    preferencesButtonAccessibleLabel: "Otwórz ustawienia cookies"
+                },
+                preferences: {
+                    title: "Ustawienia cookies",
+                    description: "<p>Możesz zdecydować, czy zgadzasz się na cookies analityczne. Niezbędne pliki cookies są wymagane do działania strony.</p>",
+                    saveButtonText: "Zapisz i zamknij",
+                    saveButtonAccessibleLabel: "Zapisz ustawienia cookies",
+                    creditLinkText: "",
+                    creditLinkAccessibleLabel: ""
+                }
+            }
+        });
+    </script>
 
     <!-- Recaptcha render -->
     {!! app(\App\Support\RecaptchaScript::class)->render() !!}
@@ -44,7 +114,7 @@
     @yield('content')
     @include('elements.footer')
 </body>
-<script src="{{asset('js/scripts.js')}}"></script>
+<script src="{{ asset('js/scripts.js') }}"></script>
 @yield('scripts')
 
 </html>
