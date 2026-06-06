@@ -658,6 +658,19 @@ body {
 .portfolio__items {
   margin-top: 3rem;
 }
+.portfolio__wrapper:not(.swiper-initialized) .portfolio__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  overflow: hidden;
+}
+.portfolio__wrapper:not(.swiper-initialized) .portfolio__item {
+  width: auto;
+  min-width: 0;
+}
+.portfolio__wrapper:not(.swiper-initialized) .portfolio__item:nth-child(n+2) {
+  display: none;
+}
 .portfolio__item {
   width: 100%;
   border: 1px solid #fff;
@@ -1039,23 +1052,21 @@ body {
 .footer__bottom {
   max-width: 1300px;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
   position: relative;
 }
 .footer__bottom::before {
   position: absolute;
   content: "";
-  width: 95%;
+  right: 2rem;
+  left: 2rem;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   height: 1px;
   background-color: #ccc;
   opacity: 0.3;
@@ -1334,6 +1345,17 @@ body {
   text-decoration: none;
 }
 
+@media (min-width: 640px) {
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__item {
+    display: block;
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__item:nth-child(n+3) {
+    display: none;
+  }
+}
 @media (min-width: 768px) {
   .mobile-nav__menu {
     max-width: 350px;
@@ -1344,6 +1366,15 @@ body {
   .faq__image {
     display: block;
   }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__items {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__item {
+    display: block;
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__item:nth-child(n+4) {
+    display: none;
+  }
   .footer__column {
     width: calc(50% - 1rem);
   }
@@ -1351,7 +1382,7 @@ body {
     width: 100%;
   }
   .footer__bottom {
-    padding: 4rem;
+    padding: 4rem 2rem;
   }
   .contact-page__form-group--dual {
     flex-wrap: nowrap;
@@ -1424,6 +1455,15 @@ body {
   }
   .services__link {
     font-size: 16px;
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__items {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__item {
+    display: block;
+  }
+  .portfolio__wrapper:not(.swiper-initialized) .portfolio__item:nth-child(n+5) {
+    display: none;
   }
   .portfolio__name {
     font-size: calc(16px + 0.4rem);

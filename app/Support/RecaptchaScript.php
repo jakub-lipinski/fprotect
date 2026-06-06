@@ -1,45 +1,15 @@
 <?php
 
-use App\Models\Setting;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Schema;
+namespace App\Support;
+
 use Illuminate\Support\HtmlString;
 
-if (! function_exists('setting')) {
-    function setting(string $key, mixed $default = null): mixed
-    {
-        $fallback = config("settings.defaults.{$key}", $default);
-
-        try {
-            if (! Schema::hasTable('settings')) {
-                return $fallback;
-            }
-
-            return Cache::rememberForever("settings.{$key}", function () use ($key, $fallback) {
-                return Setting::query()->where('key', $key)->value('value') ?? $fallback;
-            });
-        } catch (Throwable) {
-            return $fallback;
-        }
-    }
-}
-
-if (! function_exists('recaptchaFieldName')) {
-    function recaptchaFieldName(): string
-    {
-        return 'g-recaptcha-response';
-    }
-}
-
-if (! function_exists('recaptchaRuleName')) {
-    function recaptchaRuleName(): string
-    {
-        return 'recaptcha';
-    }
-}
-
-if (! function_exists('htmlScriptTagJsApi')) {
-    function htmlScriptTagJsApi(array $configuration = []): HtmlString
+class RecaptchaScript
+{
+    /**
+     * @param  array{action?: string}  $configuration
+     */
+    public function render(array $configuration = []): HtmlString
     {
         if (! config('recaptcha.enabled')) {
             return new HtmlString('');
@@ -53,7 +23,7 @@ if (! function_exists('htmlScriptTagJsApi')) {
 
         $action = $configuration['action'] ?? config('recaptcha.action');
         $domain = config('recaptcha.api_domain');
-        $fieldName = recaptchaFieldName();
+        $fieldName = $this->fieldName();
 
         return new HtmlString(<<<HTML
 <script src="https://{$domain}/recaptcha/api.js?render={$siteKey}"></script>
@@ -86,5 +56,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 HTML);
+    }
+
+    public function fieldName(): string
+    {
+        return 'g-recaptcha-response';
+    }
+
+    public function ruleName(): string
+    {
+        return 'recaptcha';
     }
 }

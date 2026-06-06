@@ -1,8 +1,8 @@
 <div class="footer">
     <div class="footer__wrapper">
         <div class="footer__column footer__column--brand">
-            <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="footer__logo">
-            <p class="footer__text">{{ setting('strona.footer_text') }}</p>
+            <img src="{{ $siteSettings->logoUrl() }}" alt="FPROTECT" class="footer__logo">
+            <p class="footer__text">{{ $siteSettings->footerText }}</p>
         </div>
         <div class="footer__column footer__column--menu">
             <h4 class="footer__heading">Szybki Dostęp</h4>
@@ -32,7 +32,7 @@
             <ul class="footer__list">
                 @forelse($footerServices as $footerService)
                     <li class="footer__item">
-                        <a href="{{ route('service', $footerService->slug) }}" class="footer__link">{{ $footerService->name }}</a>
+                        <a href="{{ route('service', $footerService->slug) }}" class="footer__link">{{ $footerService->footer_name }}</a>
                     </li>
                 @empty
                     <li class="footer__item">

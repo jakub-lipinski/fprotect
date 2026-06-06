@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Recaptcha render -->
-    {!! htmlScriptTagJsApi([]) !!}
+    {!! app(\App\Support\RecaptchaScript::class)->render() !!}
 </head>
 
 <body>

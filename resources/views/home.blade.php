@@ -9,8 +9,8 @@
     <div class="hero__wrapper">
         <div class="hero__text">
             <h6 class="hero__title">fprotect</h6>
-            <h1 class="hero__heading">{{ setting('strona.hero_title') }}</h1>
-            <p class="hero__description">{{ setting('strona.hero_text') }}</p>
+            <h1 class="hero__heading">{{ $siteSettings->heroTitle }}</h1>
+            <p class="hero__description">{{ $siteSettings->heroText }}</p>
             <div class="hero__buttons">
                 <a class="hero__button hero__button--services">Nasze usługi</a>
                 <a class="hero__button hero__button--empty hero__button--contact">Napisz do nas</a>
@@ -126,12 +126,12 @@
                 robót, opracujemy kalkulację ofertową. Wykonamy to sprawnie, bez zbędnej zwłoki. Podobnie jak każde,
                 zlecone nam zadanie.</p>
             <div class="contact__links">
-                <a href="mailto:{{ setting('kontakt.email') }}" class="contact__link"><i
+                <a href="mailto:{{ $siteSettings->email }}" class="contact__link"><i
                         class="fa-solid fa-envelope contact__icon"></i>
-                    {{ setting('kontakt.email') }}</a>
-                <a href="tel:{{ setting('kontakt.phone') }}" class="contact__link"><i
+                    {{ $siteSettings->email }}</a>
+                <a href="tel:{{ $siteSettings->phone }}" class="contact__link"><i
                         class="fa-solid fa-phone contact__icon"></i>
-                    {{ setting('kontakt.phone') }}</a>
+                    {{ $siteSettings->phone }}</a>
             </div>
         </div>
         <form method="POST" action="{{route('contact.send')}}#kontakt" class="contact__form">

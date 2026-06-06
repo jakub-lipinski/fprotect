@@ -784,6 +784,22 @@ $desktop-text: 16px;
         margin-top: 3rem;
     }
 
+    &__wrapper:not(.swiper-initialized) &__items {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        overflow: hidden;
+    }
+
+    &__wrapper:not(.swiper-initialized) &__item {
+        width: auto;
+        min-width: 0;
+
+        &:nth-child(n + 2) {
+            display: none;
+        }
+    }
+
     &__item {
         width: 100%;
         // max-width: 300px;
@@ -1235,23 +1251,21 @@ $desktop-text: 16px;
     &__bottom {
         max-width: 1300px;
         margin: 0 auto;
-        width: 90%;
+        width: 100%;
         text-align: center;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 2rem;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding: 2rem;
         position: relative;
 
         &::before {
             position: absolute;
             content: '';
-            width: 95%;
+            right: 2rem;
+            left: 2rem;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
             height: 1px;
             background-color: #ccc;
             opacity: 0.3;
@@ -1580,6 +1594,24 @@ $desktop-text: 16px;
 }
 
 // Media queries
+@media(min-width: 640px) {
+    .portfolio {
+        &__wrapper:not(.swiper-initialized) {
+            .portfolio__items {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .portfolio__item {
+                display: block;
+
+                &:nth-child(n + 3) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 @media(min-width: 768px) {
     .mobile-nav {
         &__menu {
@@ -1597,6 +1629,22 @@ $desktop-text: 16px;
         }
     }
 
+    .portfolio {
+        &__wrapper:not(.swiper-initialized) {
+            .portfolio__items {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .portfolio__item {
+                display: block;
+
+                &:nth-child(n + 4) {
+                    display: none;
+                }
+            }
+        }
+    }
+
     .footer {
         &__column {
             width: calc(50% - 1rem);
@@ -1607,7 +1655,7 @@ $desktop-text: 16px;
         }
 
         &__bottom {
-            padding: 4rem;
+            padding: 4rem 2rem;
         }
     }
 
@@ -1717,6 +1765,19 @@ $desktop-text: 16px;
     }
 
     .portfolio {
+        &__wrapper:not(.swiper-initialized) {
+            .portfolio__items {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .portfolio__item {
+                display: block;
+
+                &:nth-child(n + 5) {
+                    display: none;
+                }
+            }
+        }
 
         &__name {
             font-size: calc($desktop-text + 0.4rem);

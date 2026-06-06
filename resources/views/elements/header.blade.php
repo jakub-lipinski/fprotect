@@ -1,7 +1,7 @@
    <nav class="nav">
        <div class="nav__wrapper">
            <a href="{{route('home')}}">
-               <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="nav__logo">
+               <img src="{{ $siteSettings->logoUrl() }}" alt="FPROTECT" class="nav__logo">
            </a>
 
            <ul class="nav__menu">
@@ -31,7 +31,7 @@
    <nav class="mobile-nav">
        <div class="mobile-nav__wrapper">
            <a href="{{route('home')}}">
-               <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="mobile-nav__logo">
+               <img src="{{ $siteSettings->logoUrl() }}" alt="FPROTECT" class="mobile-nav__logo">
            </a>
            <div class="mobile-nav__haburger-wrapper">
                <img src="{{asset('img/hamburger.png')}}" alt="" class="mobile-nav__hamburger-icon">
@@ -40,7 +40,7 @@
 
            <div class="mobile-nav__menu">
 
-               <img src="{{asset('storage/'.setting('strona.logo'))}}" alt=""
+               <img src="{{ $siteSettings->logoUrl() }}" alt="FPROTECT"
                    class="mobile-nav__logo mobile-nav__logo--menu">
                <ul class="mobile-nav__menu-wrapper">
                    <li class="mobile-nav__item">

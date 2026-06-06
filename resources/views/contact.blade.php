@@ -46,9 +46,9 @@
                             <div class="contact-page__item-text">
                                 <h3 class="contact-page__item-title">Telefon</h3>
                                 <p class="contact-page__item-description"><a class="contact-page__link"
-                                        href="tel:{{ setting('kontakt.phone') }}">{{ setting('kontakt.phone') }}</a> |
+                                        href="tel:{{ $siteSettings->phone }}">{{ $siteSettings->phone }}</a> |
                                     <a class="contact-page__link"
-                                        href="tel:{{ setting('kontakt.phone2') }}">{{ setting('kontakt.phone2') }}</a>
+                                        href="tel:{{ $siteSettings->secondaryPhone }}">{{ $siteSettings->secondaryPhone }}</a>
                                 </p>
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                             <div class="contact-page__item-text">
                                 <h3 class="contact-page__item-title">Adres email</h3>
                                 <p class="contact-page__item-description"><a class="contact-page__link"
-                                        href="mailto:{{ setting('kontakt.email') }}">{{ setting('kontakt.email') }}</a>
+                                        href="mailto:{{ $siteSettings->email }}">{{ $siteSettings->email }}</a>
                                     | <a class="contact-page__link"
-                                        href="mailto:{{ setting('kontakt.email2') }}">{{ setting('kontakt.email2') }}</a>
+                                        href="mailto:{{ $siteSettings->secondaryEmail }}">{{ $siteSettings->secondaryEmail }}</a>
                                 </p>
                             </div>
                         </div>
