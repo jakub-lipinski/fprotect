@@ -46,8 +46,8 @@ class SiteSettingsData
             $path = substr($path, strlen('storage/'));
         }
 
-        if ($path !== '' && Storage::disk('public')->exists($path)) {
-            return Storage::disk('public')->url($path);
+        if ($path !== '' && Storage::disk('uploads')->exists($path)) {
+            return Storage::disk('uploads')->url($path);
         }
 
         return asset($fallback);

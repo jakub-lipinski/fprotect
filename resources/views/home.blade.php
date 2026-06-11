@@ -81,7 +81,7 @@
         <div class="swiper-wrapper portfolio__items">
             @foreach($realizations as $realization)
             <div class="swiper-slide portfolio__item">
-                <img src="{{Storage::url($realization->main_image)}}" alt="" class="portfolio__image">
+                <img src="{{ Storage::disk('uploads')->url($realization->main_image) }}" alt="" class="portfolio__image">
                 <div class="portfolio__text">
                     <h3 class="portfolio__name">{{ $realization->name }}</h3>
                     <p class="portfolio__description">{{ $realization->excerpt }}</p>

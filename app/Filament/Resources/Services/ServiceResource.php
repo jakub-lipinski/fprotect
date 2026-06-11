@@ -58,7 +58,7 @@ class ServiceResource extends Resource
                     ->columnSpanFull(),
                 FileUpload::make('image')
                     ->label('Ikona')
-                    ->disk('public')
+                    ->disk('uploads')
                     ->directory('services')
                     ->visibility('public')
                     ->image()
@@ -88,7 +88,7 @@ class ServiceResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Ikona')
-                    ->disk('public')
+                    ->disk('uploads')
                     ->visibility('public')
                     ->square(),
                 TextColumn::make('name')

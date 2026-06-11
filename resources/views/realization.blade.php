@@ -20,8 +20,8 @@
     $contactPhone = $siteSettings->phone;
     $contactEmail = $siteSettings->email;
     $contactPhoneHref = $contactPhone ? preg_replace('/[^+0-9]/', '', $contactPhone) : null;
-    $breadcrumbsImage = $realization->main_image && Storage::disk('public')->exists($realization->main_image)
-        ? Storage::url($realization->main_image)
+    $breadcrumbsImage = $realization->main_image && Storage::disk('uploads')->exists($realization->main_image)
+        ? Storage::disk('uploads')->url($realization->main_image)
         : asset('img/tlo2.jpg');
 @endphp
 

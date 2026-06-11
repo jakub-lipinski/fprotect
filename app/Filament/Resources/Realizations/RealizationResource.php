@@ -54,7 +54,7 @@ class RealizationResource extends Resource
                     ->columnSpanFull(),
                 FileUpload::make('main_image')
                     ->label('Główne zdjęcie')
-                    ->disk('public')
+                    ->disk('uploads')
                     ->directory('realizations')
                     ->visibility('public')
                     ->image()
@@ -88,7 +88,7 @@ class RealizationResource extends Resource
             ->columns([
                 ImageColumn::make('main_image')
                     ->label('Zdjęcie')
-                    ->disk('public')
+                    ->disk('uploads')
                     ->visibility('public')
                     ->square(),
                 TextColumn::make('name')

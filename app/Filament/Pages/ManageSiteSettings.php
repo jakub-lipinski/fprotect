@@ -37,7 +37,7 @@ class ManageSiteSettings extends SettingsPage
                     ->schema([
                         FileUpload::make('logo')
                             ->label('Logo')
-                            ->disk('public')
+                            ->disk('uploads')
                             ->directory('settings')
                             ->visibility('public')
                             ->image()
